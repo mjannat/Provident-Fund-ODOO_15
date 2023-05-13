@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_employee_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <!--<field name="identification_id" position="attributes">-->
+                    <!--<attribute name="string">NID</attribute>-->
+                <!--</field>-->
+                <!--<field name="certificate" position="attributes">-->
+                    <!--<attribute name="string">Last Degree of Education</attribute>-->
+                <!--</field>-->
+                <!--<field name="study_field" position="attributes">-->
+                    <!--<attribute name="string">Exam/Degree Title</attribute>-->
+                <!--</field>-->
+                <!--<field name="study_school" position="attributes">-->
+                    <!--<attribute name="string">Institute Name</attribute>-->
+                <!--</field>-->
+                <xpath expr="//field[@name='work_location']" position="before">
+                    <field name="joining_date"/>
+                    <field name="pf_account_id"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_provident_fund_rule_config,access.provident.fund.rule.config,model_provident_fund_rule_config,,1,1,1,1
+
+access_pfd_monthly_cal,access.pfd.monthly.cal,model_pfd_monthly_cal,,1,1,1,1
+access_pfd_monthly_line,access.pfd.monthly.line,model_pfd_monthly_line,,1,1,1,1
+
+access_pf_main_account,access.pf.main.account,model_pf_main_account,,1,1,1,1
+access_employee_pf_account,access.employee.pf.account,model_employee_pf_account,,1,1,1,1

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Provident Fund"
+                  id="provident_fund_menu"
+                  web_icon="provident_fund,static/description/pf_fund.png"/>
+
+        <menuitem name="Configuration"
+                  id="provident_fund_menu_config"
+                  parent= "provident_fund_menu"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="provident_fund_monthly_report_xls"
+            string="Provident Fund Monthly Report"
+            model="pfd.monthly.cal"
+            report_type="xlsx"
+            name="provident_fund.provident_fund_monthly_report_xls"
+            file="Provident Fund Report Excel"/>
+ </odoo>

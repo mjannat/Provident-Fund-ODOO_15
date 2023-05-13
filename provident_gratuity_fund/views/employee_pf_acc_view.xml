@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pf_main_account_view" model="ir.ui.view">
+            <field name="name">pf.main.account.form</field>
+            <field name="model">pf.main.account</field>
+            <field name="arch" type="xml">
+                <form string="Employee PF Account">
+                    <header>
+                    <button icon="fa-cogs" string="Compute Current Balance" name="compute_sheet" type="object" class="oe_highlight" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="main_account"/>
+                                <field name="main_account_name"/>
+                            </group>
+                            <group>
+                                <field name="main_account_code"/>
+                                <field name="main_account_internal_type"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page id="employee_line_tab" string="Employee PF Account Details">
+                                <field name="pf_lines" mode="tree" style="overflow: scroll;">
+                                    <tree editable="bottom" string="Items">
+                                        <field name="main_id" invisible="1" force_save="1"/>
+                                        <field name="employee"/>
+                                        <field name="pf_start_date"/>
+                                        <field name="join_date"/>
+                                        <field name="employee_salary"/>
+                                        <field name="pf_amount"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!--<div class="oe_chatter">-->
+                    <!--<field name="message_follower_ids" widget="mail_followers"/>-->
+                    <!--<field name="message_ids" widget="mail_thread"/>-->
+                    <!--</div>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="pf_main_account_tree_view" model="ir.ui.view">
+            <field name="name">pf.main.account.tree</field>
+            <field name="model">pf.main.account</field>
+            <field name="arch" type="xml">
+                <tree string="Monthly Provident Fund">
+                    <field name="main_account"/>
+                    <field name="main_account_name"/>
+                    <field name="main_account_code"/>
+                    <field name="main_account_internal_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pf_main_account_act_window" model="ir.actions.act_window">
+            <field name="name">Account Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pf.main.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Employee PF Accounts" sequence="2" id="pf_main_account_menu"
+                  parent="provident_fund_menu_config" action="pf_main_account_act_window"/>
+
+    </data>
+</odoo>

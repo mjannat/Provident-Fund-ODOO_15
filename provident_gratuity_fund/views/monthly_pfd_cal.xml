@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pfd_monthly_cal_view" model="ir.ui.view">
+            <field name="name">pfd.monthly.cal.form</field>
+            <field name="model">pfd.monthly.cal</field>
+            <field name="arch" type="xml">
+                <form string="Monthly Provident Fund">
+                    <header>
+                        <button icon="fa-cogs" string="Generate" name="compute_sheet" type="object"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group col="6">
+                                <label for="date_from" string="Period"/>
+                                <div>
+                                    <field name="date_from" class="oe_inline"/>
+                                    -
+                                    <field name="date_to" class="oe_inline"/>
+                                </div>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="month" class=""/>
+                            <field name="pfd_coa" class=""/>
+                        </group>
+                        <group>
+                            <field name="type" class=""/>
+                        </group>
+                        <notebook>
+                            <page id="employee_line_tab" string="Employee Details">
+                                <field name="pfd_line_ids" mode="tree" style="overflow: scroll;">
+                                    <tree editable="bottom" string="Items">
+                                        <field name="pfd_main_id" invisible="1" force_save="1"/>
+                                        <field name="employee"/>
+                                        <field name="employee_contribution"/>
+                                        <field name="company_contribution"/>
+                                        <field name="current_month_tk"/>
+                                        <field name="previous_balance"/>
+                                        <!--<field name="employer_con_mon_current"/>-->
+                                        <field name="total_balance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!--<div class="oe_chatter">-->
+                    <!--<field name="message_follower_ids" widget="mail_followers"/>-->
+                    <!--<field name="message_ids" widget="mail_thread"/>-->
+                    <!--</div>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="pfd_monthly_cal_tree_view" model="ir.ui.view">
+            <field name="name">pfd.monthly.cal.tree</field>
+            <field name="model">pfd.monthly.cal</field>
+            <field name="arch" type="xml">
+                <tree string="Monthly Provident Fund">
+                    <field name="month"/>
+                    <field name="pfd_coa"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pfd_monthly_cal_act_window" model="ir.actions.act_window">
+            <field name="name">Monthly Provident Fund</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pfd.monthly.cal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Monthly Calculation" sequence="2" id="pfd_monthly_cal_menu"
+                  parent="provident_fund_menu_config" action="pfd_monthly_cal_act_window"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+    <record forcecreate="True" id="employee_pf_account_form" model="ir.cron">
+        <field name="name">*** Employee PF Account Create Cron ***</field>
+        <field eval="True" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="type">ir.actions.server</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">months</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="provident_fund.model_hr_employee"/>
+        <field name="state">code</field>
+        <field name="code">model.pf_account_create()</field>
+    </record>
+
+</odoo>
